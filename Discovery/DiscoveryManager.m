@@ -260,19 +260,19 @@
 
     __block NSString *ssidName;
 
-    [interfaces enumerateObjectsUsingBlock:^(NSString *interface, NSUInteger idx, BOOL *stop)
-    {
-        if ([interface caseInsensitiveCompare:@"en0"] != NSOrderedSame)
-            return;
+//     [interfaces enumerateObjectsUsingBlock:^(NSString *interface, NSUInteger idx, BOOL *stop)
+//     {
+//         if ([interface caseInsensitiveCompare:@"en0"] != NSOrderedSame)
+//             return;
 
-        NSDictionary *info = (__bridge_transfer id) CNCopyCurrentNetworkInfo ((__bridge CFStringRef) interface);
+//         NSDictionary *info = (__bridge_transfer id) CNCopyCurrentNetworkInfo ((__bridge CFStringRef) interface);
 
-        if (info && [info objectForKey:@"SSID"])
-        {
-            ssidName = [info objectForKey:@"SSID"];
-            *stop = YES;
-        }
-    }];
+//         if (info && [info objectForKey:@"SSID"])
+//         {
+//             ssidName = [info objectForKey:@"SSID"];
+//             *stop = YES;
+//         }
+//     }];
 
     if (ssidName == nil)
         ssidName = @"";
